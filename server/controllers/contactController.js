@@ -12,7 +12,8 @@ exports.getAllContacts = async (req, res) => {
 exports.createContact = async (req, res) => {
   try {
     const contact = await contactService.createContact(req.body);
-    res.json({ data: contact, status: "success" });
+
+    res.json({ data: contact, status: "Contacts created succesfully" });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
@@ -30,7 +31,7 @@ exports.getContactById = async (req, res) => {
 exports.updateContact = async (req, res) => {
   try {
     const contact = await contactService.updateContact(req.params.id, req.body);
-    res.json({ data: contact, status: "success" });
+    res.json({ data: contact, status: "contact updated" });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
@@ -39,7 +40,7 @@ exports.updateContact = async (req, res) => {
 exports.deleteContact = async (req, res) => {
   try {
     const contact = await contactService.deleteContact(req.params.id);
-    res.json({ data: contact, status: "success" });
+    res.json({ data: contact, status: "con" });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }

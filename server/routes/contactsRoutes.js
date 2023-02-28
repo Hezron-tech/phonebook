@@ -1,14 +1,16 @@
 const express = require("express");
+const router = express.Router();
 const {
+    
   getAllContacts,
   createContact,
   getContactById,
   updateContact,
   deleteContact,
-} = require("../controllers/BlogController");
+} = require("../controllers/contactController");
  
 
-const router = express.Router();
+
 router.route("/").get(getAllContacts).post(createContact);
 
 router.route("/:id").get(getContactById).put(updateContact).delete(deleteContact);
