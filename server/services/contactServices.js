@@ -4,15 +4,15 @@ exports.getAllContacts = async () => {
   return await contactsModel.find();
 };
  
-exports.createContact = async (blog) => {
-  return await contactsModel.create(blog);
+exports.createContact = async (contact) => {
+  return await contactsModel.create(contact);
 };
 exports.getContactById = async (id) => {
   return await contactsModel.findById(id);
 };
  
-exports.updateContact = async (id, blog) => {
-  return await contactsModel.findByIdAndUpdate(id, blog);
+exports.updateContact = async (id, contact) => {
+  return await contactsModel.findByIdAndUpdate(id, contact);
 };
  
 exports.deleteContact = async (id) => {
