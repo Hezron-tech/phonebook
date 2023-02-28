@@ -16,6 +16,8 @@ const contactSchema= new mongoose.Schema({
     address: {
         type: String
     }
-});
+},
+{ timestamps: true }
+);
 
 mongoose.model('contacts', contactSchema);
