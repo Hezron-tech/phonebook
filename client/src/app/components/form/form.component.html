@@ -1,68 +1,105 @@
-<div class="admin">
-    <div class="create-orders" style="margin:0 auto">
-  
-  
-      <form  [formGroup]="projectForms" (ngSubmit)="onSubmit()">
-  
-        <h1>Add new Contact</h1>
-        <div class="display">
-          <div class="form-one">
-            <p>firstName</p>
-            <input type="text" formControlName="firstName" class="form-control">
-            <div *ngIf="!projectForms.get('firstName')!.valid && projectForms.get('firstName')!.touched">
-              <p class="error" *ngIf="projectForms.get('firstName')!.errors!['required']">
-                *firstname is required.
-              </p> 
+
+<div class="row">
+    <div class="col-4">
+        <div class="create-orders" style="margin:0 auto">
+      
+      
+          <form  class="p-4" [formGroup]="projectForms" (ngSubmit)="onSubmit()">
+      
+            <h3 class="text-center">Add new Contact</h3>
+            <div class="display">
+              <div class="form-one">
+                <p>firstName</p>
+                <input type="text" formControlName="firstName" class="form-control">
+                <div *ngIf="!projectForms.get('firstName')!.valid && projectForms.get('firstName')!.touched">
+                  <p class="error" *ngIf="projectForms.get('firstName')!.errors!['required']">
+                    *firstname is required.
+                  </p> 
+                </div>
+    
+    
+                <p>lastName</p>
+                <input type="text" formControlName="lastName" class="form-control">
+                <div *ngIf="!projectForms.get('lastName')!.valid && projectForms.get('lastName')!.touched">
+                  <p class="error" *ngIf="projectForms.get('lastName')!.errors!['required']">
+                    *lastName is required.
+                  </p> 
+                </div>
+    
+    
+                
+                <p>Email</p>
+                <input type="text" formControlName="email" class="form-control">
+                <div *ngIf="!projectForms.get('email')!.valid && projectForms.get('email')!.touched">
+                  <p class="error" *ngIf="projectForms.get('email')!.errors!['required']">
+                    * email cannot be empty!!.
+                  </p> 
+                </div>
+                
+    
+    
+                <p>PhoneNumber</p>
+                <input type="text" formControlName="phonenumber" class="form-control">
+                <div *ngIf="!projectForms.get('phonenumber')!.valid && projectForms.get('phonenumber')!.touched">
+                  <p class="error" *ngIf="projectForms.get('phonenumber')!.errors!['required']">
+                    * PhoneNumber cannot be empty!!.
+                  </p> 
+                </div>
+    
+    
+                <p>Addres</p>
+              
+                <input type="text" formControlName="address" class="form-control ">
+                <div *ngIf="!projectForms.get('address')!.valid && projectForms.get('address')!.touched">
+                  <p class="error" *ngIf="projectForms.get('address')!.errors!['required']">
+                    * address cannot be empty!!.
+                  </p> 
+                </div>
+              
+    
+                
+                
+      
+              </div>
+              
+              
             </div>
-
-
-            <p>lastName</p>
-            <input type="text" formControlName="lastName" class="form-control">
-            <div *ngIf="!projectForms.get('lastName')!.valid && projectForms.get('lastName')!.touched">
-              <p class="error" *ngIf="projectForms.get('lastName')!.errors!['required']">
-                *lastName is required.
-              </p> 
-            </div>
-
-
             
-            <p>Email</p>
-            <input type="text" formControlName="email" class="form-control">
-            <div *ngIf="!projectForms.get('email')!.valid && projectForms.get('email')!.touched">
-              <p class="error" *ngIf="projectForms.get('email')!.errors!['required']">
-                * email cannot be empty!!.
-              </p> 
-            </div>
-            
-
-
-            <p>PhoneNumber</p>
-            <input type="text" formControlName="phonenumber" class="form-control">
-            <div *ngIf="!projectForms.get('phonenumber')!.valid && projectForms.get('phonenumber')!.touched">
-              <p class="error" *ngIf="projectForms.get('phonenumber')!.errors!['required']">
-                * PhoneNumber cannot be empty!!.
-              </p> 
-            </div>
-
-
-            <p>Addres</p>
-            <input type="text" formControlName="address" class="form-control">
-            <div *ngIf="!projectForms.get('address')!.valid && projectForms.get('address')!.touched">
-              <p class="error" *ngIf="projectForms.get('address')!.errors!['required']">
-                * address cannot be empty!!.
-              </p> 
-            </div>
-            
-  
-          </div>
-          
-          
+                <button class="btn btn-primary m-5"  type="submit">Create New Contacts</button>
+          </form>
         </div>
-        
-            <button type="submit" class="create">Create New Contacts</button>
-      </form>
-    </div>
-  
-  
-  
-  </div>
+      
+      
+      
+      </div>
+
+
+      <div class="col-6">
+        <h1 class="text-center">All Contacts</h1>
+        <table class="table">
+            <thead>
+              <tr>
+                
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+               
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+                <td> <button class="btn btn-success">Edit</button></td>
+                <td> <button class="btn btn-danger">Delete</button></td>
+                
+              </tr>
+              
+            </tbody>
+          </table>
+      </div>
+</div>
+
+
