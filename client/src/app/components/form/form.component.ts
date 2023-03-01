@@ -13,6 +13,7 @@ export class FormComponent implements OnInit {
   contacts: Contacts[] =[];
   singlecontact?: Contacts
   filterText:string=''
+  message:boolean=false;
 
   constructor( private fb:FormBuilder, private contactservices:ContactServicesService) { }
   
@@ -75,6 +76,7 @@ export class FormComponent implements OnInit {
           this.contacts=data
 
           console.log('data after adding', this.contacts);
+          this.message=true
           this.projectForms.reset()
           this.getAllContacts()
           
@@ -113,44 +115,6 @@ this.contactservices.get_contact_by_id(id).subscribe({
 
 
 
-// show_single_parking_state(id:string){
-//   this.parkingApi.get_single_parking_state(id).subscribe({
-//     next: (data: any) => {
-//       if (data) {
-//         this.single_parking_state_data = data;
-//         this.dataSource.data = this.single_parking_state_data.trans.payments
-//         this.loading = false
-//         // console.log(data);
-//       }
-//     },
-//     error: (error) => {
-//       // this.loading = false;
-
-//       switch (error.status) {
-//         case 401:
-//         case 403:
-//           /* handled in http interceptor */
-//           break;
-//         default:
-//           const err_snackbar = this.snackbar.openSnackBar(
-//             'Unknown Error. Could not retrieve  transaction.',
-//             'Retry',
-//             5
-//           );
-
-//           err_snackbar.onAction().subscribe(() => {
-//             this.parkingApi.get_single_transaction(this.id);
-//           });
-//           break;
-//       }
-//     },
-//     complete: () => {
-//       // this.loading = false;
-//     },
-//   });
-
-// }
-
 
 
 
@@ -170,6 +134,10 @@ this.contactservices.get_contact_by_id(id).subscribe({
 
 
   }
+  remove(){
+  this.message=false
+  }
+  
 
   onSave(){
     this.editMode=false

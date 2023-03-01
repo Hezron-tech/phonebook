@@ -8,6 +8,10 @@
         <form  class="p-4" [formGroup]="projectForms" (ngSubmit)="onSubmit()">
     
           <h3 class="text-center">Add new Contact</h3>
+          <div class="alert alert-success alert-dismissible fade show" *ngIf="message" role="alert">
+            <strong>Successfully created contact!</strong>
+            <button (click)="remove()" type="button"  data-bs-dismiss="alert" aria-label="Close">X</button>
+          </div>
           <div class="display">
             <div class="form-one">
               <p>firstName</p>
