@@ -11,6 +11,8 @@ import { ContactServicesService } from 'src/app/services/contact-services.servic
 export class FormComponent implements OnInit {
   projectForms!: FormGroup;
   contacts: Contacts[] =[];
+  singlecontact?: Contacts
+  filterText:string=''
 
   constructor( private fb:FormBuilder, private contactservices:ContactServicesService) { }
   
@@ -73,6 +75,8 @@ export class FormComponent implements OnInit {
           this.contacts=data
 
           console.log('data after adding', this.contacts);
+          this.projectForms.reset()
+          this.getAllContacts()
           
         },
 error:(err:any)=>{
@@ -96,7 +100,74 @@ complete:()=>{
 editContact(id:string){
 
   this.editMode=true
-this.contactservices.redirect('/editContact/'+id)
+this.contactservices.get_contact_by_id(id).subscribe({
+  next:(data:any)=>{
+    this.singlecontact=data
+
+    console.log("single contact", this.singlecontact);
+    
+    
+    
+  }
+})
+
+
+
+// show_single_parking_state(id:string){
+//   this.parkingApi.get_single_parking_state(id).subscribe({
+//     next: (data: any) => {
+//       if (data) {
+//         this.single_parking_state_data = data;
+//         this.dataSource.data = this.single_parking_state_data.trans.payments
+//         this.loading = false
+//         // console.log(data);
+//       }
+//     },
+//     error: (error) => {
+//       // this.loading = false;
+
+//       switch (error.status) {
+//         case 401:
+//         case 403:
+//           /* handled in http interceptor */
+//           break;
+//         default:
+//           const err_snackbar = this.snackbar.openSnackBar(
+//             'Unknown Error. Could not retrieve  transaction.',
+//             'Retry',
+//             5
+//           );
+
+//           err_snackbar.onAction().subscribe(() => {
+//             this.parkingApi.get_single_transaction(this.id);
+//           });
+//           break;
+//       }
+//     },
+//     complete: () => {
+//       // this.loading = false;
+//     },
+//   });
+
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   }
 
@@ -110,7 +181,13 @@ this.contactservices.redirect('/editContact/'+id)
   // }
 
   deleteContact(id:string){
-    // console.log(id);
+   
+    this.contactservices.delete_contact_by_id(id).subscribe({
+      next:(data:any)=>{
+        console.log(data);
+        this.getAllContacts()
+      }
+    })
     
       }
 }

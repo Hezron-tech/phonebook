@@ -86,21 +86,21 @@
       <div class="display">
         <div class="form-one">
           <p>firstName</p>
-          <input type="text" formControlName="firstName" class="form-control">
-          <div *ngIf="!projectForms.get('firstName')!.valid && projectForms.get('firstName')!.touched">
+          <input ngModel="single.firstName" type="text" formControlName="firstName" class="form-control">
+          <!-- <div *ngIf="!projectForms.get('firstName')!.valid && projectForms.get('firstName')!.touched">
             <p class="error" *ngIf="projectForms.get('firstName')!.errors!['required']">
               *firstname is required.
             </p> 
-          </div>
+          </div> -->
 
 
           <p>lastName</p>
           <input type="text" formControlName="lastName" class="form-control">
-          <div *ngIf="!projectForms.get('lastName')!.valid && projectForms.get('lastName')!.touched">
+          <!-- <div *ngIf="!projectForms.get('lastName')!.valid && projectForms.get('lastName')!.touched">
             <p class="error" *ngIf="projectForms.get('lastName')!.errors!['required']">
               *lastName is required.
             </p> 
-          </div>
+          </div> -->
 
 
           
@@ -131,10 +131,6 @@
               * address cannot be empty!!.
             </p> 
           </div>
-        
-
-          
-          
 
         </div>
         
@@ -157,7 +153,7 @@
 
         <div class="input-group">
             <div class="form-outline">
-              <input type="search" id="form1" class="form-control" placeholder="search here" /> 
+              <input type="search" id="form1" class="form-control" placeholder="search here" [(ngModel)]="filterText" /> 
             </div>
             
           </div>
@@ -174,7 +170,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let cont of contacts">
+              <tr *ngFor="let cont of contacts |search: filterText">
                
                 <td>{{cont.firstName}}</td>
                 <td>{{cont.lastName}}</td>

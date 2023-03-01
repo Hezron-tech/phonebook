@@ -38,6 +38,18 @@ redirect(url: string) {
 
   }
 
+  get_contact_by_id(id: string): Observable<Contacts> {
+    return this.http.get<Contacts>(`${this.baseurl}/api/contacts/${id}/`);
+  }
+
+
+  delete_contact_by_id(id: string): Observable<any> {
+    return this.http.delete<any>(`${this.baseurl}/api/contacts/${id}/`);
+  }
+
+
+
+
 
 
 

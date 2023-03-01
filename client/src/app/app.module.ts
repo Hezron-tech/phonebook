@@ -7,13 +7,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormComponent } from './components/form/form.component';
 import { EditComponent } from './components/edit/edit.component';
 import { HttpClientModule } from '@angular/common/http';
+import { SearchPipe } from './search.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
   
     FormComponent,
-    EditComponent
+    EditComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
