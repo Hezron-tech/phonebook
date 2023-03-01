@@ -19,6 +19,11 @@ const contactSchema= new mongoose.Schema({
 },
 { timestamps: true }
 );
+contactSchema.method("toJSON", function() {
+    const { __v, _id, ...object } = this.toObject();
+    object.id = _id;
+    return object;
+  });
 
 var Contacts=mongoose.model('contacts', contactSchema);
 module.exports=Contacts;
