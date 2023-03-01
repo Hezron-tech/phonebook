@@ -1,77 +1,155 @@
 
 <div class="row">
-    <div class="col-4">
-        <div class="create-orders" style="margin:0 auto">
-      
-      
-          <form  class="p-4" [formGroup]="projectForms" (ngSubmit)="onSubmit()">
-      
-            <h3 class="text-center">Add new Contact</h3>
-            <div class="display">
-              <div class="form-one">
-                <p>firstName</p>
-                <input type="text" formControlName="firstName" class="form-control">
-                <div *ngIf="!projectForms.get('firstName')!.valid && projectForms.get('firstName')!.touched">
-                  <p class="error" *ngIf="projectForms.get('firstName')!.errors!['required']">
-                    *firstname is required.
-                  </p> 
-                </div>
+  
+    <div class="col-4" *ngIf="!editMode">
+      <div class="create-orders" style="margin:0 auto">
     
     
-                <p>lastName</p>
-                <input type="text" formControlName="lastName" class="form-control">
-                <div *ngIf="!projectForms.get('lastName')!.valid && projectForms.get('lastName')!.touched">
-                  <p class="error" *ngIf="projectForms.get('lastName')!.errors!['required']">
-                    *lastName is required.
-                  </p> 
-                </div>
+        <form  class="p-4" [formGroup]="projectForms" (ngSubmit)="onSubmit()">
     
-    
-                
-                <p>Email</p>
-                <input type="text" formControlName="email" class="form-control">
-                <div *ngIf="!projectForms.get('email')!.valid && projectForms.get('email')!.touched">
-                  <p class="error" *ngIf="projectForms.get('email')!.errors!['required']">
-                    * email cannot be empty!!.
-                  </p> 
-                </div>
-                
-    
-    
-                <p>PhoneNumber</p>
-                <input type="text" formControlName="phonenumber" class="form-control">
-                <div *ngIf="!projectForms.get('phonenumber')!.valid && projectForms.get('phonenumber')!.touched">
-                  <p class="error" *ngIf="projectForms.get('phonenumber')!.errors!['required']">
-                    * PhoneNumber cannot be empty!!.
-                  </p> 
-                </div>
-    
-    
-                <p>Addres</p>
+          <h3 class="text-center">Add new Contact</h3>
+          <div class="display">
+            <div class="form-one">
+              <p>firstName</p>
+              <input type="text" formControlName="firstName" class="form-control">
+              <div *ngIf="!projectForms.get('firstName')!.valid && projectForms.get('firstName')!.touched">
+                <p class="error" *ngIf="projectForms.get('firstName')!.errors!['required']">
+                  *firstname is required.
+                </p> 
+              </div>
+  
+  
+              <p>lastName</p>
+              <input type="text" formControlName="lastName" class="form-control">
+              <div *ngIf="!projectForms.get('lastName')!.valid && projectForms.get('lastName')!.touched">
+                <p class="error" *ngIf="projectForms.get('lastName')!.errors!['required']">
+                  *lastName is required.
+                </p> 
+              </div>
+  
+  
               
-                <input type="text" formControlName="address" class="form-control ">
-                <div *ngIf="!projectForms.get('address')!.valid && projectForms.get('address')!.touched">
-                  <p class="error" *ngIf="projectForms.get('address')!.errors!['required']">
-                    * address cannot be empty!!.
-                  </p> 
-                </div>
-              
-    
-                
-                
-      
+              <p>Email</p>
+              <input type="text" formControlName="email" class="form-control">
+              <div *ngIf="!projectForms.get('email')!.valid && projectForms.get('email')!.touched">
+                <p class="error" *ngIf="projectForms.get('email')!.errors!['required']">
+                  * email cannot be empty!!.
+                </p> 
               </div>
               
+  
+  
+              <p>PhoneNumber</p>
+              <input type="text" formControlName="phoneNumber" class="form-control">
+              <div *ngIf="!projectForms.get('phoneNumber')!.valid && projectForms.get('phoneNumber')!.touched">
+                <p class="error" *ngIf="projectForms.get('phoneNumber')!.errors!['required']">
+                  * phoneNumber cannot be empty!!.
+                </p> 
+              </div>
+  
+  
+              <p>Addres</p>
+            
+              <input type="text" formControlName="address" class="form-control ">
+              <div *ngIf="!projectForms.get('address')!.valid && projectForms.get('address')!.touched">
+                <p class="error" *ngIf="projectForms.get('address')!.errors!['required']">
+                  * address cannot be empty!!.
+                </p> 
+              </div>
+            
+  
               
+              
+    
             </div>
             
-                <button class="btn btn-primary m-5"  type="submit">Create New Contacts</button>
-          </form>
+            
+          </div>
+          
+              <button class="btn btn-primary m-5"  type="submit">Create New Contacts</button>
+        </form>
+     
+   
+    </div>
+  </div>
+    
+
+<!-- edit mode -->
+
+<div class="col-4" *ngIf="editMode">
+  <div class="create-orders" style="margin:0 auto">
+
+
+    <form  class="p-4" [formGroup]="projectForms" (ngSubmit)="onSave()">
+
+      <h3 class="text-center">Edit Contact</h3>
+      <div class="display">
+        <div class="form-one">
+          <p>firstName</p>
+          <input type="text" formControlName="firstName" class="form-control">
+          <div *ngIf="!projectForms.get('firstName')!.valid && projectForms.get('firstName')!.touched">
+            <p class="error" *ngIf="projectForms.get('firstName')!.errors!['required']">
+              *firstname is required.
+            </p> 
+          </div>
+
+
+          <p>lastName</p>
+          <input type="text" formControlName="lastName" class="form-control">
+          <div *ngIf="!projectForms.get('lastName')!.valid && projectForms.get('lastName')!.touched">
+            <p class="error" *ngIf="projectForms.get('lastName')!.errors!['required']">
+              *lastName is required.
+            </p> 
+          </div>
+
+
+          
+          <p>Email</p>
+          <input type="text" formControlName="email" class="form-control">
+          <div *ngIf="!projectForms.get('email')!.valid && projectForms.get('email')!.touched">
+            <p class="error" *ngIf="projectForms.get('email')!.errors!['required']">
+              * email cannot be empty!!.
+            </p> 
+          </div>
+          
+
+
+          <p>PhoneNumber</p>
+          <input type="text" formControlName="phoneNumber" class="form-control">
+          <div *ngIf="!projectForms.get('phoneNumber')!.valid && projectForms.get('phoneNumber')!.touched">
+            <p class="error" *ngIf="projectForms.get('phoneNumber')!.errors!['required']">
+              * phoneNumber cannot be empty!!.
+            </p> 
+          </div>
+
+
+          <p>Addres</p>
+        
+          <input type="text" formControlName="address" class="form-control ">
+          <div *ngIf="!projectForms.get('address')!.valid && projectForms.get('address')!.touched">
+            <p class="error" *ngIf="projectForms.get('address')!.errors!['required']">
+              * address cannot be empty!!.
+            </p> 
+          </div>
+        
+
+          
+          
+
         </div>
-      
-      
-      
+        
+        
       </div>
+      
+          <button class="btn btn-primary m-5"  type="submit">Update Contact</button>
+    </form>
+  </div>
+
+
+
+</div>
+
+<!-- end of edit mode -->
 
 
       <div class="col-6">
@@ -83,7 +161,7 @@
             </div>
             
           </div>
-        <table class="table">
+        <table class="table" >
             <thead>
               <tr>
                 
@@ -96,15 +174,15 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr *ngFor="let cont of contacts">
                
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>mdo@gmail.com</td>
-                <td>0722367899</td>
-                <td>Nairobi</td>
-                <td> <button class="btn btn-success">Edit</button></td>
-                <td> <button class="btn btn-danger">Delete</button></td>
+                <td>{{cont.firstName}}</td>
+                <td>{{cont.lastName}}</td>
+                <td>{{cont.email}}</td>
+                <td>{{cont.phoneNumber}}</td>
+                <td>{{cont.address}}</td>
+                <td> <button class="btn btn-success" routerLink="editContact" (click)="editContact(cont.id)" >Edit</button></td>
+                <td> <button class="btn btn-danger" (click)="deleteContact(cont.id)"  >Delete</button></td>
                 
               </tr>
               
