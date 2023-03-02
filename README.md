@@ -1,4 +1,4 @@
-# Image-Gallery
+
 ## Author
 Kiprop  Hezron
 
@@ -35,11 +35,6 @@ run the project using ng serve --open
 * Javascript
 *typescript
 * Bootstrap3
-
-
-# user interface
-
-
 
 ## Known Bugs
 There are no known bugs currently 
