@@ -19,14 +19,14 @@ git clone
 
 BACKEND
 * In the projects root directory, cd to server and:
-npm install
-crete your env and connect to your mongodb using your own mongo_url
-npm start
+*npm install,
+*crete your env and connect to your mongodb using your own mongo_url
+*npm start
 
 FRONTEND
  * In the projects root directory, cd to client and:
-npm install   
-run the project using ng serve --open
+*npm install   
+*run the project using ng serve --open
 
 
 ## Technology used
